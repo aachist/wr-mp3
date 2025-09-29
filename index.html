@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Запись и воспроизведение аудио</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin: 10px;
+      cursor: pointer;
+    }
+    #status {
+      margin-top: 20px;
+      font-size: 18px;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <h1>Запись и воспроизведение аудио</h1>
+  <button id="recordButton">Начать запись</button>
+  <button id="stopButton" disabled>Остановить запись</button>
+  <div id="status"></div>
+  <br>
+  <input type="file" id="audioFileInput" accept="audio/*" style="display: none;">
+  <button id="playButton" disabled>Воспроизвести запись</button>
+
+  <script src="app.js"></script>
+</body>
+</html>
