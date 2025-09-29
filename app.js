@@ -8,6 +8,7 @@ const recordButton = document.getElementById('recordButton');
 const stopButton = document.getElementById('stopButton');
 const playButton = document.getElementById('playButton');
 const statusDiv = document.getElementById('status');
+const audioFileInput = document.getElementById('audioFileInput');
 
 // Начало записи
 recordButton.addEventListener('click', async () => {
@@ -53,8 +54,26 @@ stopButton.addEventListener('click', () => {
   stopButton.disabled = true;
 });
 
+// Воспроизведение выбранного файла
+audioFileInput.addEventListener('change', (event) => {
+  const file = event.target.files[0];
+  if (file) {
+    const fileUrl = URL.createObjectURL(file);
+    audioUrl = fileUrl; // Сохраняем ссылку на выбранный файл
+    playButton.disabled = false;
+    statusDiv.textContent = `Выбран файл: ${file.name}`;
+  } else {
+    statusDiv.textContent = 'Файл не выбран.';
+    playButton.disabled = true;
+  }
+});
+
 // Воспроизведение записи
 playButton.addEventListener('click', () => {
-  const audio = new Audio(audioUrl);
-  audio.play();
+  if (audioUrl) {
+    const audio = new Audio(audioUrl);
+    audio.play();
+  } else {
+    statusDiv.textContent = 'Нет файла для воспроизведения.';
+  }
 });

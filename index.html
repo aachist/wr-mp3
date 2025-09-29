@@ -21,6 +21,9 @@
       font-size: 18px;
       color: green;
     }
+    input[type="file"] {
+      margin-top: 20px;
+    }
   </style>
 </head>
 <body>
@@ -29,7 +32,7 @@
   <button id="stopButton" disabled>Остановить запись</button>
   <div id="status"></div>
   <br>
-  <input type="file" id="audioFileInput" accept="audio/*" style="display: none;">
+  <input type="file" id="audioFileInput" accept="audio/*">
   <button id="playButton" disabled>Воспроизвести запись</button>
 
   <script src="app.js"></script>
